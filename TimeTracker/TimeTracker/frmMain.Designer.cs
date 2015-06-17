@@ -52,7 +52,7 @@
 			this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutMain.Size = new System.Drawing.Size(635, 377);
+			this.tableLayoutMain.Size = new System.Drawing.Size(635, 262);
 			this.tableLayoutMain.TabIndex = 0;
 			// 
 			// textResult
@@ -63,8 +63,9 @@
 			this.textResult.Name = "textResult";
 			this.textResult.ReadOnly = true;
 			this.tableLayoutMain.SetRowSpan(this.textResult, 3);
-			this.textResult.Size = new System.Drawing.Size(579, 346);
-			this.textResult.TabIndex = 0;
+			this.textResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.textResult.Size = new System.Drawing.Size(579, 231);
+			this.textResult.TabIndex = 3;
 			// 
 			// textInput
 			// 
@@ -72,7 +73,7 @@
 			this.textInput.Location = new System.Drawing.Point(3, 3);
 			this.textInput.Name = "textInput";
 			this.textInput.Size = new System.Drawing.Size(579, 20);
-			this.textInput.TabIndex = 1;
+			this.textInput.TabIndex = 0;
 			// 
 			// buttonAdd
 			// 
@@ -82,7 +83,7 @@
 			this.buttonAdd.Margin = new System.Windows.Forms.Padding(1);
 			this.buttonAdd.Name = "buttonAdd";
 			this.buttonAdd.Size = new System.Drawing.Size(23, 23);
-			this.buttonAdd.TabIndex = 2;
+			this.buttonAdd.TabIndex = 1;
 			this.buttonAdd.UseVisualStyleBackColor = true;
 			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
 			// 
@@ -94,7 +95,7 @@
 			this.buttonCollapse.Margin = new System.Windows.Forms.Padding(1);
 			this.buttonCollapse.Name = "buttonCollapse";
 			this.buttonCollapse.Size = new System.Drawing.Size(23, 23);
-			this.buttonCollapse.TabIndex = 3;
+			this.buttonCollapse.TabIndex = 2;
 			this.buttonCollapse.UseVisualStyleBackColor = true;
 			this.buttonCollapse.Click += new System.EventHandler(this.buttonCollapse_Click);
 			// 
@@ -102,7 +103,7 @@
 			// 
 			this.tableLayoutMain.SetColumnSpan(this.buttonExport, 2);
 			this.buttonExport.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.buttonExport.Location = new System.Drawing.Point(587, 178);
+			this.buttonExport.Location = new System.Drawing.Point(587, 120);
 			this.buttonExport.Margin = new System.Windows.Forms.Padding(2);
 			this.buttonExport.Name = "buttonExport";
 			this.buttonExport.Size = new System.Drawing.Size(46, 46);
@@ -116,7 +117,7 @@
 			this.AcceptButton = this.buttonAdd;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(635, 377);
+			this.ClientSize = new System.Drawing.Size(635, 262);
 			this.Controls.Add(this.tableLayoutMain);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmMain";
