@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TimeTracker.dto;
@@ -21,6 +22,9 @@ namespace TimeTracker {
 		private const string DATE_FORMAT = "HH:mm:ss";
 		private string currentActivity = null;
 		private List<LogEntry> entries = new List<LogEntry>();
+		private static CancellationTokenSource tokenSource = new CancellationTokenSource();
+		private static CancellationToken cancelToken = tokenSource.Token;
+		private static Task listener;
 
 		[DllImport("user32.dll")]
 		static extern IntPtr GetForegroundWindow();
@@ -41,6 +45,15 @@ namespace TimeTracker {
 			textResult.Font = new Font(fonts.Families[0], 10.0F);
 
 			TopMost = true;
+
+			listener = Task.Factory.StartNew(() => {
+				while (true) {
+					Thread.Sleep(100);
+					if (cancelToken.IsCancellationRequested) {
+						break;
+					}
+				}
+			}, cancelToken, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 		}
 
 		private void buttonCollapse_Click(object sender, EventArgs e) {
@@ -157,6 +170,10 @@ namespace TimeTracker {
 
 		private static DateTime now() {
 			return DateTime.Now;
+		}
+
+		private void frmMain_FormClosing(object sender, FormClosingEventArgs e) {
+
 		}
 	}
 }

@@ -122,6 +122,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmMain";
 			this.Text = "TimeTracker";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
 			this.tableLayoutMain.ResumeLayout(false);
 			this.tableLayoutMain.PerformLayout();
 			this.ResumeLayout(false);
